@@ -6,10 +6,13 @@ import React, { FormEvent, MouseEvent, useState } from 'react'
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DutyStatus, dutyStatusOptions, Increment, Logbook, Remark } from '../../types/logbook';
-import { cn, debounce, incrementIndexToHourString } from '@/lib/utils';
+import { cn, incrementIndexToHourString } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import { debouncer } from './utils';
+
+
 
 export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
   
@@ -29,7 +32,7 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
     }
   }
 
-  const handleChange = debounce((e: FormEvent<HTMLInputElement>, incrementIndex: number, field: string) => {
+  const handleChange = debouncer((e: FormEvent<HTMLInputElement>, incrementIndex: number, field: string) => {
     setIncrements(prev => prev.map((inc, i) => {
       if (i !== incrementIndex) return inc;
 

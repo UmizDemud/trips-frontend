@@ -1,9 +1,10 @@
 import { Input } from '@/components/ui/input';
 import useOutsideClick from '@/hooks/use-outside-click';
-import { cn, debounce } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { GeoapifyAutocompleteResponse } from '@/modules/types';
 import { Loader2Icon } from 'lucide-react';
 import { useRef, useState } from 'react'
+import { debouncer } from './utils';
 
 type Props = {
   setAddress: (val: string) => void
@@ -28,7 +29,7 @@ export const LocationPicker = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const onInputChange = debounce(() => {
+  const onInputChange = debouncer(() => {
     setError("");
 
     if (!inputRef.current?.value) return
@@ -83,7 +84,7 @@ export const LocationPicker = ({
       <div className="relative">
         <Input
           ref={inputRef}
-          onChange={onInputChange}
+          onChange={() => onInputChange()}
           placeholder="Find address"
           className={cn(
             "w-full",

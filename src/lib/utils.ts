@@ -14,16 +14,6 @@ export const incrementIndexToHourString = (i: number) => {
   return `${hours}:${minutes}`
 }
 
-export const debounce = <T extends (...args: any[]) => void>(func: T, wait: number) => {
-  let timeout: ReturnType<typeof setTimeout>;
-
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func.apply(this, args);
-    }, wait);
-  };
-}
 
 type Coordinate = [number, number]; // [longitude, latitude]
 
