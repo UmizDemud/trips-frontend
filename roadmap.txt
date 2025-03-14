@@ -1,0 +1,80 @@
+Steps to Complete the Assignment
+
+1. Project Setup
+  A. Set up Django backend
+
+    - $ python -m venv venv
+    - $ source venv/bin/activate
+      - $ deactivate
+    - $ pip install django djangorestframework
+    - $ python manage.py migrate
+    - $ python manage.py runserver
+
+  B. Set up frontend, served via Next.js
+    - the drill
+
+  C. Test - configure backend/frontend communication (API setup)
+    - create a secure connection to Django server
+    - create and use a test route in/for backend/frontend communication
+
+2. Backend (Django) Development
+  A. Create Django models for trips & logs
+    - This step continues as I discover more about keeping locations in a database
+      - Location model is a compact entity that holds geolocation, associated name and stop type together, they could be separated for a more long lasting db
+
+  B. Build API endpoints for trip and logbook
+    - Used djangorestframework (DRF) to create the boilerplate code. Otherwise would have to:
+        - Manual Serialization: You have to manually convert model instances to JSON and back.
+        - Handling HTTP Methods: For each HTTP method (GET, POST, PUT, DELETE), you need to write separate logic to handle those.
+        - Views and URLs: You manage views and their URL mappings manually, without the abstraction provided by ViewSets and routers in DRF.
+
+  C. Integrate a routing API (Google Maps, OpenRouteService, or Mapbox)
+    - Simple Map Operations created using Leaflet and various free APIs
+
+  D. Implement Hours of Service (HOS) compliance logic
+    - Should I write probability functions and auto-create logbooks, make it less efficient, or defy orders
+      - Yo it's an interview assignment 
+
+  E. Implement Geolocation service for "address -> lat, lon" conversion
+    - Done
+
+3. Frontend (React) Development
+  A. Build input form (current location, pickup, drop-off, cycle hours)
+    - Done
+
+  B. Display route on a map (Leaflet.js, Mapbox, or Google Maps API)
+
+  C. Connect the interface with backend securely
+
+  D. Implement ELD log drawing (Canvas or Chart.js)
+    -Done
+
+4. UI/UX Enhancements
+Improve form validation & user experience
+Style the app for better aesthetics
+
+5. Deployment
+Deploy Django backend (Render/Railway)
+Deploy React frontend (Vercel)
+Connect frontend to live backend
+
+6. Testing & Debugging
+Verify API responses & calculations
+Check UI responsiveness & usability
+
+7. Loom Video & Submission
+Record a 3-5 min Loom video walkthrough
+Upload project to GitHub & share links
+
+
+notes:
+- Did not create dark mode
+
+- önemli not
+  - Project is deployed on Render.com, it is a free instance therefore shuts down due to inactivity, one may have to wait 50 seconds until it spins up and sends its first response 
+
+- ekleyebilirim
+	- Plaka takibi
+	- sürücü takibi
+ 	- yakıt hesabı Litre bazında
+ 	- harita, tıklama ile (current, pickup, dropoff seçenekleriyle) seçip yaklaşabilir
