@@ -3,6 +3,7 @@ import { capitalizeWords, metersToDistanceString, secondsToDurationString } from
 import { Location, Trip } from "@/modules/trip/types/trip";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
 
