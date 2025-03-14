@@ -64,7 +64,7 @@ Check UI responsiveness & usability
 
 7. Loom Video & Submission
 Record a 3-5 min Loom video walkthrough
-Upload project to GitHub & share links
+Upload project to GitHub & share links 
 
 
 notes:
