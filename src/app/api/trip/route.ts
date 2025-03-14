@@ -1,11 +1,13 @@
 import { Trip } from "@/modules/trip/types/trip";
 import { NextRequest, NextResponse } from "next/server";
 
+
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
 
   const body: Trip = await request.json();
+  
 
   try {
 
@@ -32,9 +34,7 @@ export async function GET() {
 
   try {
     const response = await fetch(`${process.env.API_URL!}/api/trip/`, {
-      headers: {
-        "Cache-Control": "no-store",
-      },
+
     });
     const data = await response.json();
     return NextResponse.json(data)
