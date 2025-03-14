@@ -11,8 +11,15 @@ const Page = async ({ params }: {
   const { id } = await params;
 
   const data: Logbook = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/logbook/" + id)
-    .then(res => res.json())
+    .then(res => {
+
+      if (res.ok) {
+        return res.json()
+      }
+    })
     .catch(console.error)
+
+  if (!data) return null;
 
   return (
     <div className="w-full flex flex-col items-end gap-12 pr-12">

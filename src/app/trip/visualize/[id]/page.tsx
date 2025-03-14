@@ -17,7 +17,12 @@ const Page = async ({ params }: {
     trip: Trip,
     logbooks: Logbook[]
   } = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/trip/" + id)
-    .then(res => res.json())
+    .then(res => {
+
+      if (res.ok) {
+        return res.json()
+      }
+    })
     .catch(console.error)
 
   if (!resp) return null

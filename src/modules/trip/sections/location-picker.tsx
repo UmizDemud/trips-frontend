@@ -84,6 +84,7 @@ export const LocationPicker = ({
       <div className="relative">
         <Input
           ref={inputRef}
+          onFocus={() => setOptionsOpen(true)}
           onChange={() => onInputChange()}
           placeholder="Find address"
           className={cn(

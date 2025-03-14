@@ -10,9 +10,17 @@ const Page = async ({ params }: {
 
   const { id } = await params;
 
-  const logbook: Logbook = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/logbook/" + id)
-    .then(res => res.json())
+  const logbook: Logbook | null = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/logbook/" + id)
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+
+      return null;
+    })
     .catch(console.error)
+
+  if (!logbook) return null;
 
   return (
     <LogbookEdit logbook={logbook} />

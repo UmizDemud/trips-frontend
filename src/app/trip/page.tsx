@@ -8,7 +8,11 @@ export const dynamic = 'force-dynamic';
 export default async function Page() {
 
   const data: Trip[] = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/trip")
-    .then(res => res.json())
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
     .catch(console.error)
 
   if (!data) return
