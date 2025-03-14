@@ -83,15 +83,16 @@ const LogbookVisualizer = ({ logbook }: { logbook: Logbook }) => {
 
       if (inc.remark) {
         ctx.save();
-        ctx.translate(x - squareW, remarkHeight);
+        ctx.translate(x - squareW * 1.8, remarkHeight);
         ctx.rotate((-30 * Math.PI) / 180);
-        ctx.font = "10px Arial";
+        ctx.font = "16px Arial";
         ctx.fillText(`${inc.remark.city}, ${inc.remark.state}`, 0, 0);
         ctx.restore();
 
         ctx.save();
-        ctx.translate(x - squareW * 1.4, remarkHeight + squareH / 2);
+        ctx.translate(x - squareW * 1.6, remarkHeight + squareH / 2);
         ctx.rotate((-30 * Math.PI) / 180);
+        ctx.font = "16px Arial";
         ctx.fillText(`${inc.remark.detail}`, 0, 0, squareH * 4);
         ctx.restore();
       }
