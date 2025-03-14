@@ -226,8 +226,8 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
           roadDist += fuelStopData.properties.distance;
           roadTime += fuelStopData.properties.time;
 
-          _stops[target].time = roadTime,
-          _stops[target].distance = roadDist,
+          _stops[target].time = roadTime;
+          _stops[target].distance = roadDist;
 
           _route = [..._route, ...fuelstopCoordinates.map(([a, b]: [number, number]) => ([b, a]))];
           cumDist = 0;

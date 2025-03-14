@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { DutyStatus, dutyStatusOptions, Remark } from "../../types/logbook";
+import { DutyStatus, dutyStatusOptions } from "../../types/logbook";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckedState } from "@radix-ui/react-checkbox";
 import { Input } from "@/components/ui/input";

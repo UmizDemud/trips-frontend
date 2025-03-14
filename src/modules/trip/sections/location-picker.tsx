@@ -33,7 +33,7 @@ export const LocationPicker = ({
 
     if (!inputRef.current?.value) return
 
-    let value = inputRef.current.value
+    const value = inputRef.current.value
     setLoading(true)
 
     fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(value)}&format=json&apiKey=${process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY}`)

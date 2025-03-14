@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { DutyStatus, Increment, Logbook, Remark } from "../../types/logbook"
+import { DutyStatus, Increment, Logbook } from "../../types/logbook"
 import { IncrementField } from "../logbook-form/increment"
 
 export const LogbookForm = ({logbook}: {logbook: Logbook}) => {
