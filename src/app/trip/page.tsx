@@ -14,7 +14,7 @@ export default async function Page() {
   if (!data) return
 
   return (
-    <div className="w-screen overflow-scroll">
+    <div className="w-screen overflow-scroll-x">
       <h1 className="w-64 px-4 pt-2 mb-12 text-2xl font-bold border-b-2 border-neutral-600 dark:border-neutral-400">
         Trips
       </h1>
