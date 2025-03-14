@@ -30,7 +30,11 @@ export async function POST(request: NextRequest) {
 export async function GET() {
 
   try {
-    const response = await fetch(`${process.env.API_URL!}/api/trip/`);
+    const response = await fetch(`${process.env.API_URL!}/api/trip/`, {
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    });
     const data = await response.json();
     return NextResponse.json(data)
   } catch (error) {
