@@ -28,7 +28,7 @@ export default async function Page() {
                 <p>Distance</p>
               </div>
             </TableHead>
-            <TableHead className="min-w-[10rem]" colSpan={3}>Stops</TableHead>
+            <TableHead className="min-w-[10rem]" colSpan={100}>Stops</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

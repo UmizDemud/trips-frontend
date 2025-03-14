@@ -81,7 +81,7 @@ export default function LogbookNew() {
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex">
       <div className="p-2 text-neutral-900 w-96 dark:text-neutral-100">
         <h1 className="w-64 px-4 pt-2 text-2xl font-bold border-b-2 border-neutral-600 dark:border-neutral-400">
           New Trip

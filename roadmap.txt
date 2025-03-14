@@ -21,6 +21,7 @@ Steps to Complete the Assignment
   A. Create Django models for trips & logs
     - This step continues as I discover more about keeping locations in a database
       - Location model is a compact entity that holds geolocation, associated name and stop type together, they could be separated for a more long lasting db
+      - It could have strict tracking of the driver
 
   B. Build API endpoints for trip and logbook
     - Used djangorestframework (DRF) to create the boilerplate code. Otherwise would have to:
@@ -43,28 +44,32 @@ Steps to Complete the Assignment
     - Done
 
   B. Display route on a map (Leaflet.js, Mapbox, or Google Maps API)
+    - Done
 
   C. Connect the interface with backend securely
+    - Have a middle backend, yet the cors policies are not set strictly, all used services are free
 
   D. Implement ELD log drawing (Canvas or Chart.js)
     -Done
 
-4. UI/UX Enhancements
+4. UI/UX Enhancements - Done
 Improve form validation & user experience
 Style the app for better aesthetics
 
-5. Deployment
+5. Deployment - Done
 Deploy Django backend (Render/Railway)
 Deploy React frontend (Vercel)
+  - Setup dynamic rendering for resource pages
 Connect frontend to live backend
 
-6. Testing & Debugging
+6. Testing & Debugging - Done
 Verify API responses & calculations
 Check UI responsiveness & usability
 
-7. Loom Video & Submission
+7. Loom Video & Submission - Done
 Record a 3-5 min Loom video walkthrough
-Upload project to GitHub & share links 
+  - The novelist of the steps, waiting for the perfect sunlight
+Upload project to GitHub & share links
 
 
 notes:
@@ -88,6 +93,7 @@ notes:
 
   - add trip
  	  - harita, tıklama ile (current, pickup, dropoff seçenekleriyle) seçip yaklaşabilir
+    - creation of logbooks allow for possible changing of locations at off-duty hours.
   
   - trip view
     - changing stops according to authentication role, role gates
@@ -107,3 +113,6 @@ notes:
 	  - sürücü takibi
  	  - yakıt hesabı Litre bazında
 
+
+- post script notes
+  - Didn't create a logbook if a trip is shorter than a day

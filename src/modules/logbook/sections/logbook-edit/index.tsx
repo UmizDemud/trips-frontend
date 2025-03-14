@@ -85,8 +85,8 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
 
 
   return (
-    <form onSubmit={saveLogbook} className="pt-4">
-      <div className="md:ml-[unset] ml-6 mb-6 select-none flex md:flex-col">
+    <form onSubmit={saveLogbook} className="w-fit md:pt-4 md:px-0 md:pb-0 px-2 py-4">
+      <div className="w-fit md:ml-[unset] ml-6 mb-6 select-none flex md:flex-col">
         <div className="flex md:flex-row flex-col pb-6 pt-12 -ml-2 md:mb-8 text-xs">
           <div className="md:w-32 w-24"></div>
 
@@ -128,10 +128,10 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
            {selection[1] != null && "Details"}
         </h1>
 
-        <Button disabled={loading} className={cn("mt-1 w-32 h-12 text-lg", loading && "bg-neutral-600")} variant="default">Save</Button>
+        <Button disabled={loading} className={cn("md:mt-1 -mt-6 w-32 h-12 text-lg", loading && "bg-neutral-600")} variant="default">Save</Button>
       </div>
 
-      <div className="w-fit flex flex-col">
+      <div className="md:w-fit flex flex-col">
         {selection[1] != null && (
           <>
             <div className="flex items-center gap-2 pb-2">
@@ -143,7 +143,7 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
                   return ([dutyStatusOptions.findIndex(item => item === val), prev[1]])
                 })
               }}>
-                <SelectTrigger className="w-96">
+                <SelectTrigger className="md:w-96 w-full">
                   <SelectValue placeholder="Select status"></SelectValue>
                 </SelectTrigger>
 
@@ -159,19 +159,19 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
               <div className="flex flex-col gap-2">
                 <Label>
                   <p className="w-28">State:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "state")} className="w-96" defaultValue={increments[selection[1]].remark?.state} />
+                  <Input onInput={(e) => handleChange(e, selection[1], "state")} className="md:w-96" defaultValue={increments[selection[1]].remark?.state} />
                 </Label>
                 <Label>
                   <p className="w-28">City:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "city")}  className="w-96" defaultValue={increments[selection[1]].remark?.city} />
+                  <Input onInput={(e) => handleChange(e, selection[1], "city")}  className="md:w-96" defaultValue={increments[selection[1]].remark?.city} />
                 </Label>
                 <Label>
                   <p className="w-28">Commodity:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "commodity")} className="w-96" defaultValue={increments[selection[1]].remark?.commodity} />
+                  <Input onInput={(e) => handleChange(e, selection[1], "commodity")} className="md:w-96" defaultValue={increments[selection[1]].remark?.commodity} />
                 </Label>
                 <Label>
                   <p className="w-28">Detail:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "detail")} className="w-96" defaultValue={increments[selection[1]].remark?.detail} />
+                  <Input onInput={(e) => handleChange(e, selection[1], "detail")} className="md:w-96" defaultValue={increments[selection[1]].remark?.detail} />
                 </Label>
               </div>
             )}
