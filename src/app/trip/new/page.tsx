@@ -56,6 +56,8 @@ export default function LogbookNew() {
       return;
     }
 
+    setLoading(true)
+
     fetch(process.env.NEXT_PUBLIC_API_URL + "/api/trip", {
       method: "POST",
       body: JSON.stringify({
@@ -70,8 +72,12 @@ export default function LogbookNew() {
       if (res.id) {
         router.push("/trip/visualize/" + res.id)
       }
+
     })
     .catch(console.error)
+    .finally(() => {
+      setLoading(false)
+    })
   }
 
   return (

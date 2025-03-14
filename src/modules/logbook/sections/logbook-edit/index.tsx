@@ -20,6 +20,8 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
 
   const [increments, setIncrements] = useState<Increment[]>(logbook.increments);
   const [selection, setSelection] = useState<[number, number] | [null, null]>([null, null])
+  const [loading, setLoading] = useState(false);
+
 
   const handleClick = (di: number, ii: number) => {
     setSelection([di, ii]);
@@ -56,7 +58,7 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
   const saveLogbook = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-
+    setLoading(true)
     fetch(process.env.NEXT_PUBLIC_API_URL + "/api/logbook/" + logbook.id, {
         method: "PATCH",
         body: JSON.stringify({
@@ -76,6 +78,9 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
         }
       })
       .catch(console.error)
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
 
@@ -123,7 +128,7 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
            {selection[1] != null && "Details"}
         </h1>
 
-        <Button className="mt-1 w-32 h-12 text-lg" variant="default">Save</Button>
+        <Button disabled={loading} className={cn("mt-1 w-32 h-12 text-lg", loading && "bg-neutral-600")} variant="default">Save</Button>
       </div>
 
       <div className="w-fit flex flex-col">
@@ -170,13 +175,15 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
                 </Label>
               </div>
             )}
-            <div className="flex flex-row self-end gap-4 mt-12">
-              <Button className="mt-1 w-32 h-12 text-lg bg-neutral-700" variant="default" type="button" onClick={() => {
-                setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, remark: {
-                  city: "", state: "", commodity: "", detail: ""
-                }}) : inc))
-              }}>Add remark</Button>
-            </div>
+            {increments[selection[1]].remark == null && (
+              <div className="flex flex-row self-end gap-4 mt-12">
+                <Button className="mt-1 w-32 h-12 text-lg bg-neutral-700" variant="default" type="button" onClick={() => {
+                  setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, remark: {
+                    city: "", state: "", commodity: "", detail: ""
+                  }}) : inc))
+                }}>Add remark</Button>
+              </div>
+            )}
           </>
         )}
 
