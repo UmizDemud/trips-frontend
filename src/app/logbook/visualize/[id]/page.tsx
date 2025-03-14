@@ -2,6 +2,7 @@ import { LogbookVisualizer } from "@/modules/logbook/sections/logbook-visualizer
 import { Logbook } from "@/modules/logbook/types/logbook";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
 
 const Page = async ({ params }: {
   params: Promise<{id: number}>,

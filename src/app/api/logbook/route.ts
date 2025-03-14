@@ -1,8 +1,6 @@
 import { Logbook } from "@/modules/logbook/types/logbook";
 import { NextRequest, NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
-
 export async function POST(request: NextRequest) {
 
   const body: Logbook = await request.json();

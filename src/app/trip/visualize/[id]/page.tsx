@@ -5,6 +5,7 @@ import { Logbook } from "@/modules/logbook/types/logbook";
 import { TripVisualizer } from "@/modules/trip/sections/trip-visualizer";
 import { Trip } from "@/modules/trip/types/trip";
 
+export const dynamic = 'force-dynamic';
 
 const Page = async ({ params }: {
   params: Promise<{id: number}>,

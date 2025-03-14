@@ -2,6 +2,8 @@
 import { LogbookEdit } from "@/modules/logbook/sections/logbook-edit";
 import { Logbook } from "@/modules/logbook/types/logbook";
 
+export const dynamic = 'force-dynamic';
+
 const Page = async ({ params }: {
   params: Promise<{id: number}>,
 }) => {
