@@ -68,13 +68,31 @@ Upload project to GitHub & share links
 
 
 notes:
-- Did not create dark mode
+
+- general
+  - lots of web app functions for ease of use distributed to different views
 
 - önemli not
   - Project is deployed on Render.com, it is a free instance therefore shuts down due to inactivity, one may have to wait 50 seconds until it spins up and sends its first response 
 
 - ekleyebilirim
-	- Plaka takibi
-	- sürücü takibi
- 	- yakıt hesabı Litre bazında
- 	- harita, tıklama ile (current, pickup, dropoff seçenekleriyle) seçip yaklaşabilir
+
+  - add trip
+ 	  - harita, tıklama ile (current, pickup, dropoff seçenekleriyle) seçip yaklaşabilir
+  
+  - trip view
+    - changing stops according to authentication role, role gates
+    - mobile frontend should reconfigure table displays
+      - Don't show every stop for a trip, maybe only start pickup and end
+  
+  - logbook view
+    - mobile Frontend
+
+  - logbook edit
+     - should reconfigure displays
+
+  - general
+    - create dark mode
+	  - Plaka takibi
+	  - sürücü takibi
+ 	  - yakıt hesabı Litre bazında

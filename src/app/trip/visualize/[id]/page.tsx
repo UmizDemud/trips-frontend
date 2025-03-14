@@ -12,12 +12,16 @@ const Page = async ({ params }: {
 
   const { id } = await params;
 
-  const { trip, logbooks }: {
+  const resp: {
     trip: Trip,
     logbooks: Logbook[]
   } = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/trip/" + id)
     .then(res => res.json())
     .catch(console.error)
+
+  if (!resp) return null
+
+  const { trip, logbooks } = resp;
 
   const startingDate = new Date(trip.start_date);
 
