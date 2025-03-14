@@ -108,9 +108,9 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
                 onMouseOver={e => handleMouseOver(e, di, ii)}
                 className={cn(
                   'md:h-[unset] h-16 md:w-8 w-16 border rounded shadow border-neutral-800 transform cursor-pointer',
-                  dutyStatusOptions[di] === inc.dutyStatus && "bg-neutral-500",
                   !(di === selection[0] && ii === selection[1]) && "hover:bg-neutral-200",
-                  (dutyStatusOptions[di] === inc.dutyStatus && inc.remark != null) && "bg-amber-500",
+                  dutyStatusOptions[di] === inc.dutyStatus && "bg-neutral-500 hover:bg-neutral-600",
+                  (dutyStatusOptions[di] === inc.dutyStatus && inc.remark != null) && "bg-amber-500 hover:bg-amber-600",
                   di === selection[0] && ii === selection[1] && "bg-amber-300 hover:bg-amber-400",
                 )}
               ></div>
@@ -136,7 +136,7 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
           <>
             <div className="flex items-center gap-2 pb-2">
               <span className="w-28">Status:</span>
-              <Select onValueChange={(val: DutyStatus) => {
+              <Select value={increments[selection[1]].dutyStatus} onValueChange={(val: DutyStatus) => {
                 setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, dutyStatus: val}) : inc))
                 setSelection(prev => {
                   if (!prev[1]) return prev;

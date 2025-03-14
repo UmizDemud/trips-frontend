@@ -21,8 +21,14 @@ export default async function Page() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Start Time</TableHead>
-            <TableHead colSpan={3}>Stops</TableHead>
+            <TableHead className="min-w-[10rem]">Start Time</TableHead>
+            <TableHead className="min-w-[10rem]">
+              <div className="flex flex-col justify-center items-center">
+                <p>Stop #</p>
+                <p>Distance</p>
+              </div>
+            </TableHead>
+            <TableHead className="min-w-[10rem]" colSpan={3}>Stops</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -42,17 +48,24 @@ export default async function Page() {
                     </div>
                   </TableCell>
 
+                  <TableCell>
+                    <div className="flex flex-col justify-center items-center">
+                      <p>{trip.locations.length} stops</p>
+                      <p>{metersToDistanceString(trip.locations[trip.locations.length - 1].distance ?? 0)}</p>
+                    </div>
+                  </TableCell>
+
                   {trip.locations.map((l: Location, i: number) => (
                     <TableCell key={`${i}_${l.name}`}>
-                      <div>
+                      <div className="w-40">
                         <div >
-                          <div>{capitalizeWords(l.type)}</div>
+                          <div className="overflow-ellipsis overflow-hidden">{capitalizeWords(l.type)}</div>
 
-                          <div>{l.name}</div>
+                          <div className="overflow-ellipsis overflow-hidden">{l.name}</div>
 
-                          <div>{l.distance ? metersToDistanceString(l.distance) : "-"}</div>
+                          <div className="overflow-ellipsis overflow-hidden">{l.distance ? metersToDistanceString(l.distance) : "-"}</div>
 
-                          <div>{l.time ? secondsToDurationString(l.time) : "-"}</div>
+                          <div className="overflow-ellipsis overflow-hidden">{l.time ? secondsToDurationString(l.time) : "-"}</div>
                         </div>
                       </div>
                     </TableCell>

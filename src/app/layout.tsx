@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
       >
-        <nav className="h-20 w-full flex justify-between items-center border-b">
+        <nav className="h-20 absolute top-0 left-0 right-0 flex justify-between items-center border-b">
           <div className="w-48">
 
           </div>
@@ -45,8 +45,8 @@ export default function RootLayout({
               </Link>
           </div>
         </nav>
-        <div className="flex">
-          <div className="hidden md:block max-w-[3rem] w-64 hover:max-w-[16rem] transition-[max-width]"></div>
+        <div className="flex mt-20">
+          <div className="hidden md:block max-w-[3rem] w-64 hover:max-w-[16rem] transition-[max-width]"> </div>
           <div className="min-h[calc(100vh - 5rem)] pl-2 pt-2 border-l">
             {children}
           </div>

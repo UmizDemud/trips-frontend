@@ -35,9 +35,9 @@ const Page = async ({ params }: {
             Trip
           </h1>
           
-          <div className="flex">
+          <div className="flex mt-6 pt-2">
             <div className="flex-1">
-              <h2 className="w-64 mt-6 pt-2 text-lg font-bold">
+              <h2 className="text-lg font-bold">
                 Starting date
               </h2>
 
@@ -45,7 +45,7 @@ const Page = async ({ params }: {
             </div>
 
             <div className="flex-1">
-              <h2 className="w-64 mt-4 pt-2 text-lg font-bold">
+              <h2 className="text-lg font-bold">
                 Days required
               </h2>
 

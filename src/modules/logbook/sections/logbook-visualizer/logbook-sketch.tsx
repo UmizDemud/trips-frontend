@@ -45,7 +45,7 @@ const LogbookVisualizer = ({ logbook }: { logbook: Logbook }) => {
       ctx.drawImage(img, 0, 0, img.width * 2, img.height * 2);
       
       ctx.font = "24px Arial";
-      ctx.fillText(`${date.getMonth().toString().padStart(2, "0")}`, 366, 34);
+      ctx.fillText(`${(date.getMonth() + 1).toString().padStart(2, "0")}`, 366, 34);
       ctx.fillText(`${date.getDate().toString().padStart(2, "0")}`, 450, 34);
       ctx.fillText(`${date.getFullYear()}`, 520, 34);
       ctx.fillText(logbook.initials, 665, 88);

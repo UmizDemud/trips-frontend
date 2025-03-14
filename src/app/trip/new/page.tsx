@@ -116,9 +116,7 @@ export default function LogbookNew() {
             <h2 className="text-lg font-bold mb-2">■ Current Cycle Used (Hrs)</h2>
 
             <div className="flex items-center gap-2">
-              <Input ref={hrsRef} type="number" className="block w-48" />
-
-              <div className="h-6 w-6"></div>
+              <Input ref={hrsRef} type="number" className="block" />
             </div>
           </div>
 
