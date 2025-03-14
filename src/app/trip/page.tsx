@@ -10,6 +10,8 @@ export default async function Page() {
     .then(res => res.json())
     .catch(console.error)
 
+  if (!data) return
+
   return (
     <div className="w-screen overflow-scroll">
       <h1 className="w-64 px-4 pt-2 mb-12 text-2xl font-bold border-b-2 border-neutral-600 dark:border-neutral-400">
