@@ -95,6 +95,7 @@ notes:
       - Don't show every stop for a trip, maybe only start pickup and end
   
   - logbook view
+    - show skeleton during loading state until the canvas is drawn
     - mobile Frontend
 
   - logbook edit
@@ -105,3 +106,4 @@ notes:
 	  - Plaka takibi
 	  - sürücü takibi
  	  - yakıt hesabı Litre bazında
+

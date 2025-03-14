@@ -102,7 +102,7 @@ const LogbookVisualizer = ({ logbook }: { logbook: Logbook }) => {
     });
   };
 
-  return <canvas ref={canvasRef} style={{ display: "block" }} />;
+  return <canvas ref={canvasRef} className="border-b-2 border-r-2 border-black" />;
 };
 
 export default LogbookVisualizer;

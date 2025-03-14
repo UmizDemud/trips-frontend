@@ -15,8 +15,8 @@ const Page = async ({ params }: {
     .catch(console.error)
 
   return (
-    <div className="flex flex-col items-end gap-12">
-      <LogbookVisualizer logbook= {data} />
+    <div className="w-full flex flex-col items-end gap-12 pr-12">
+      <LogbookVisualizer logbook={data} />
       <Link className="bg-neutral-800 mt-4 mr-4 w-20 h-12 rounded flex justify-center items-center text-neutral-100" href={"/logbook/edit/" + id}>Edit</Link>
     </div>
   )
