@@ -279,6 +279,7 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
         }
       }).finally(() => {
         setLoading(false)
+        setProgression("")
       });
 
   }, [tripData, tripComplete]);
@@ -289,7 +290,7 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
       <MapContainer
         className='w-96 h-96 md:w-[64rem] md:h-[48rem]'
         center={[parseFloat(tripData.pickup?.latitude || "0"), parseFloat(tripData.current?.longitude || "0")]}
-        zoom={2}
+        zoom={4}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -34,17 +34,23 @@ const Page = async ({ params }: {
             Trip
           </h1>
           
-          <h2 className="w-64 mt-6 pt-2 text-lg font-bold">
-            Starting date
-          </h2>
+          <div className="flex">
+            <div className="flex-1">
+              <h2 className="w-64 mt-6 pt-2 text-lg font-bold">
+                Starting date
+              </h2>
 
-          <p>{`${startingDate.toLocaleTimeString()} - ${startingDate.toLocaleDateString()}`}</p>
+              <p>{`${startingDate.toLocaleTimeString()} - ${startingDate.toLocaleDateString()}`}</p>
+            </div>
 
-          <h2 className="w-64 mt-4 pt-2 text-lg font-bold">
-            Days required
-          </h2>
+            <div className="flex-1">
+              <h2 className="w-64 mt-4 pt-2 text-lg font-bold">
+                Days required
+              </h2>
 
-          <p>{logbooks.length}</p>
+              <p>{logbooks.length}</p>
+            </div>
+          </div>
 
 
           <div>

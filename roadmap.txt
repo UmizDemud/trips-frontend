@@ -69,6 +69,14 @@ Upload project to GitHub & share links
 
 notes:
 
+  - Alive
+
+- APIs
+  - overpass for searching "fuel" stations
+  - geoapify for
+    - autocomplete: geolocation search via a keyword
+    - routing: route data between locations
+
 - general
   - lots of web app functions for ease of use distributed to different views
 
