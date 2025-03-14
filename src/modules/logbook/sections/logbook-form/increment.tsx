@@ -5,7 +5,7 @@ import { CheckedState } from "@radix-ui/react-checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { incrementIndexToHourString } from "@/lib/utils";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 
@@ -13,13 +13,10 @@ type Props = {
   index: number
   status: DutyStatus
   setStatus: (val: DutyStatus) => void
-
-  remark?: Remark
-  setRemark: (newRemark: Remark | undefined) => void // No need for premature optimization
 }
 
 
-export const IncrementField = ({ index, status, setStatus, remark, setRemark }: Props) => {
+export const IncrementField = ({ index, status, setStatus }: Props) => {
   const [hasRemark, setHasRemark] = useState(false)
 
   const cityInputRef = useRef<HTMLInputElement | null>(null);

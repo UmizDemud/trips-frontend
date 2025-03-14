@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui/input';
 import useOutsideClick from '@/hooks/use-outside-click';
 import { cn, debounce } from '@/lib/utils';
+import { GeoapifyAutocompleteResponse } from '@/modules/types';
 import { Loader2Icon } from 'lucide-react';
 import { useRef, useState } from 'react'
 
@@ -27,7 +28,7 @@ export const LocationPicker = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const onInputChange = debounce((val?: string) => {
+  const onInputChange = debounce(() => {
     setError("");
 
     if (!inputRef.current?.value) return

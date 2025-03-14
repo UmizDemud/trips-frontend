@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
@@ -22,6 +22,6 @@ export async function GET(
       logbooks: logbooksData,
     });
   } catch (error) {
-    return new NextResponse("Failed to fetch trip", { status: 500 });
+    return new NextResponse(`Failed to fetch trip: ${error}`, { status: 500 });
   }
 }

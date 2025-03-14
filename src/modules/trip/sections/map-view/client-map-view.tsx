@@ -105,7 +105,7 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
     name: string,
   } | null> => {
 
-    let data: {
+    const data: {
       location: [number, number], // longitude, latitude
       name: string
     }[] = await getFuelStops(...loc, rad)

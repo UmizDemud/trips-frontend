@@ -10,24 +10,10 @@ export const LogbookForm = ({logbook}: {logbook: Logbook}) => {
   const createChangeIncrementStatus = (index: number) => {
     return (value: DutyStatus) => {
       setIncrements(prev => {
-        const newIncrements = [...increments];
+        const newIncrements = [...prev];
         newIncrements[index] = {
           ...newIncrements[index],
           dutyStatus: value
-        }
-
-        return newIncrements;
-      })
-    }
-  }
-
-  const createChangeRemark = (index: number) => {
-    return (value: Remark | undefined) => {
-      setIncrements(prev => {
-        const newIncrements = [...increments];
-        newIncrements[index] = {
-          ...newIncrements[index],
-          remark: value
         }
 
         return newIncrements;
@@ -44,8 +30,6 @@ export const LogbookForm = ({logbook}: {logbook: Logbook}) => {
           key={`inc_${i}`}
           status={increments[i].dutyStatus}
           setStatus={createChangeIncrementStatus(i)}
-          remark={increments[i].remark}
-          setRemark={createChangeRemark(i)}
         />
       ))}
     </div>

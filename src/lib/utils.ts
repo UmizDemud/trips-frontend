@@ -60,9 +60,15 @@ export const getFuelStops = async (lat: number, lon: number, radius = 5000): Pro
   try {
 
     const response = await fetch(overpassUrl);
-    const data = await response.json();
+    const {elements} = await response.json();
     
-    return data.elements.map((element: any) => ({
+    return elements.map((element: {
+      lon: string | number,
+      lat: string | number,
+      tags: {
+        name?: string
+      },
+    }) => ({
       location: [element.lon, element.lat],
       name: element.tags.name || "Unknown Station",
     }));

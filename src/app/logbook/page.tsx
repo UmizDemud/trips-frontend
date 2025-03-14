@@ -1,5 +1,4 @@
 import { LogbookVisualizer } from "@/modules/logbook/sections/logbook-visualizer";
-import { exampleLogbook } from "@/modules/logbook/types/exaamples";
 import { Logbook } from "@/modules/logbook/types/logbook";
 
 export default async function Page() {

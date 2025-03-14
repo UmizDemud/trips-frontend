@@ -11,7 +11,7 @@ export default function useOutsideClick(
   handler?: () => void,
 ) {
   useEffect(() => {
-    function handleClickOutside(event: any) {
+    function handleClickOutside(event: MouseEvent) {
       if (!handler) return;
 
       // Clicked browser's scrollbar
@@ -23,7 +23,7 @@ export default function useOutsideClick(
 
       let containedToAnyRefs = false;
       for (const rf of refs) {
-        if (rf && rf.current && rf.current.contains(event.target)) {
+        if (rf && rf.current && rf.current.contains(event.target as Node)) {
           containedToAnyRefs = true;
           break;
         }
@@ -36,7 +36,7 @@ export default function useOutsideClick(
     }
 
     // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', (e) => handleClickOutside(e));
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);

@@ -1,8 +1,7 @@
 import { Logbook } from "@/modules/logbook/types/logbook";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function GET(
-  request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params // 'a', 'b', or 'c'
@@ -17,7 +16,7 @@ export async function GET(
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
-    return new NextResponse("Failed to fetch logbook", { status: 500 });
+    return new NextResponse(`"Failed to fetch logbook": ${error}`, { status: 500 });
   }
 }
 
@@ -40,6 +39,6 @@ export async function PATCH(
 
     return NextResponse.json(response);
   } catch (error) {
-    return new NextResponse("Failed to fetch logbook", { status: 500 });
+    return new NextResponse(`Failed to fetch logbook: ${error}`, { status: 500 });
   }
 }

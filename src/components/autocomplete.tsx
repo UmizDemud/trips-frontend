@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Input } from './ui/input'
-import { cn, debounce } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Loader2Icon } from 'lucide-react';
 
 type Props = {

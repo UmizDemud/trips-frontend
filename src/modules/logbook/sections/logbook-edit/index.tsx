@@ -59,8 +59,9 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
         body: JSON.stringify({
           "increments": increments.map(increment => {
             if (increment.remark === null) {
-              const { remark, ...rest } = increment; // Remove remark if it's null
-              return rest;
+              const incWithoutRemark = {...increment};
+              delete incWithoutRemark.remark;
+              return incWithoutRemark;
             }
             return increment;
           })

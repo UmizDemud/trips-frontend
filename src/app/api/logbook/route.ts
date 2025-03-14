@@ -21,17 +21,17 @@ export async function POST(request: NextRequest) {
     const data = await response.json();
     return Response.json(data);
   } catch (error) {
-    return new Response("Failed to create logbook", {status: 500})
+    return new Response(`Failed to create logbook: ${error}`, {status: 500})
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
 
   try {
     const response = await fetch(`${process.env.API_URL!}/api/logbook/`);
     const data = await response.json();
     return NextResponse.json(data)
   } catch (error) {
-    return new NextResponse("Failed to fetch trips", {status: 500})
+    return new NextResponse(`Failed to fetch logbooks: ${error}`, {status: 500})
   }
 }

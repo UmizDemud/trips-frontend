@@ -1,4 +1,4 @@
-type GeoapifyAutocompleteResponse = {
+export type GeoapifyAutocompleteResponse = {
   formatted: string,
   lat: string,
   lon: string

@@ -5,7 +5,7 @@ import {
   CommandInput,
 } from "./command"
 import { Command as CommandPrimitive } from "cmdk"
-import { useState, useRef, useCallback, type KeyboardEvent, RefObject } from "react"
+import { useState, useCallback, type KeyboardEvent, RefObject } from "react"
 
 import { Skeleton } from "./skeleton"
 
