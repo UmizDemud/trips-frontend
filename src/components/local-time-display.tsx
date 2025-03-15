@@ -1,4 +1,4 @@
-"use effect"
+"use client"
 
 export const LocalTimeDisplay = ({date, datetime}: {date: Date, datetime: "date" | "time"}) => {
 
