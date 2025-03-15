@@ -77,12 +77,6 @@ notes:
   - Alive
 
 
-- APIs
-  - overpass for searching "fuel" stations
-  - geoapify for
-    - autocomplete: geolocation search via a keyword
-    - routing: route data between locations
-
 - general
   - lots of web app functions for ease of use distributed to different views
 
@@ -94,7 +88,13 @@ notes:
   - add trip
  	  - harita, tıklama ile (current, pickup, dropoff seçenekleriyle) seçip yaklaşabilir
     - creation of logbooks allow for possible changing of locations at off-duty hours.
-  
+""
+  - APIs
+    - overpass for searching "fuel" stations
+    - geoapify for
+      - autocomplete: geolocation search via ahttps://chatgpt.com/ keyword
+      - routing: route data between locations
+""
   - trip view
     - changing stops according to authentication role, role gates
     - mobile frontend should reconfigure table displays
@@ -112,6 +112,8 @@ notes:
 	  - Plaka takibi
 	  - sürücü takibi
  	  - yakıt hesabı Litre bazında
+
+
 
 
 - post script notes
