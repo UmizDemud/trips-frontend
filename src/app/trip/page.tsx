@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { capitalizeWords, metersToDistanceString, secondsToDurationString } from "@/lib/utils";
 import { Location, Trip } from "@/modules/trip/types/trip";
-import { DateTimeRow } from "@/modules/trip/date-time-row";
+import { LocalTimeDisplay } from "@/components/local-time-display";
 
 export const dynamic = 'force-dynamic';
 
@@ -44,7 +44,15 @@ export default async function Page() {
             return (
               <Link className="cursor-pointer" key={trip.id} href={`trip/visualize/${trip.id}`} legacyBehavior={true}>
                 <TableRow className="cursor-pointer">
-                  <DateTimeRow date={tripDate} />
+                <TableCell>
+                  <div>
+                    <LocalTimeDisplay date={tripDate} datetime="time" />
+                  </div>
+
+                  <div>
+                    <LocalTimeDisplay date={tripDate} datetime="date" />
+                  </div>
+                </TableCell>
 
                   <TableCell>
                     <div className="flex flex-col justify-center items-center">

@@ -1,3 +1,4 @@
+import { LocalTimeDisplay } from "@/components/local-time-display";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { capitalizeWords, metersToDistanceString, secondsToDurationString } from "@/lib/utils";
 import { LogbookVisualizer } from "@/modules/logbook/sections/logbook-visualizer";
@@ -46,7 +47,7 @@ const Page = async ({ params }: {
                 Starting date
               </h2>
 
-              <p>{`${startingDate.toLocaleTimeString()} - ${startingDate.toLocaleDateString()}`}</p>
+              <p><LocalTimeDisplay date={startingDate} datetime="time" /> - <LocalTimeDisplay date={startingDate} datetime="date" /></p>
             </div>
 
             <div className="flex-1">
