@@ -288,7 +288,7 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
   return (
     <div className='relative overflow-hidden rounded-4xl'>
       <MapContainer
-        className='w-96 h-96 md:w-[53rem] md:h-[32rem]'
+        style={{height: "calc(100vh - 9rem)", width: "calc(100vw - 31rem)"}}
         center={[parseFloat(tripData.pickup?.latitude || "0"), parseFloat(tripData.current?.longitude || "0")]}
         zoom={4}
       >

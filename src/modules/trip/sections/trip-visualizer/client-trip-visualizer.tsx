@@ -93,11 +93,12 @@ export default function ClientTripVisualizer({trip}: {
     ]
   }, [[Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER], [Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER]])
 
-  
+
   return (
     <div className='relative overflow-hidden rounded-4xl'>
       <MapContainer
-        className='w-96 h-96 md:w-[64rem] md:h-[32rem]'
+        className='w-3/5 md:w-[64rem]'
+        style={{height: "calc(100vh - 8rem)"}}
         center={[0, 0]}
         zoom={12}
       >
