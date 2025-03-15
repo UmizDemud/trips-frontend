@@ -5,7 +5,7 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params // 'a', 'b', or 'c'
+  const { id } = await params;
 
   try {
     const trip = await fetch(`${process.env.API_URL!}/api/trip/${id}/`);
