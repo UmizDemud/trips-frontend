@@ -56,6 +56,11 @@ export default function LogbookNew() {
       return;
     }
 
+    if (parseFloat(hrsRef.current?.value) < 0) {
+      setError("CCU(hours) can not be negative")
+      return;
+    }
+
     setLoading(true)
 
     fetch(process.env.NEXT_PUBLIC_API_URL + "/api/trip", {

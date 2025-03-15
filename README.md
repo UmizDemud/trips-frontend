@@ -7,4 +7,6 @@
 
 
 ## Updates
+
 - Timezones rendering correctly on SSR pages
+- CCU hours can not be negative
