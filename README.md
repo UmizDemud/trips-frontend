@@ -8,5 +8,5 @@
 
 ## Updates
 
-- Timezones rendering correctly on SSR pages __ Mar 15 | 6:30
-- CCU hours can not be negative __ Mar 15 | 6:30
+- Timezones rendering correctly on SSR pages _~_ Mar 15 | 6:30
+- CCU hours can not be negative _~_ Mar 15 | 6:30
