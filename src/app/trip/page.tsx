@@ -37,7 +37,7 @@ export default async function Page() {
         </TableHeader>
         <TableBody>
           {data.map(trip => {
-            const tripDate = new Date(trip.start_date);
+            const tripDate = new Date(trip.created_at ?? trip.start_date);
 
             return (
               <Link className="cursor-pointer" key={trip.id} href={`trip/visualize/${trip.id}`} legacyBehavior={true}>

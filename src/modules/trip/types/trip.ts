@@ -13,5 +13,6 @@ export type Trip = {
   locations           : Location[];
   cycle_hours         : number;   // e.g. 10.5 hours
 
+  created_at?         : string
   start_date          : string;   // Format: "YYYY-MM-DD"
 }
