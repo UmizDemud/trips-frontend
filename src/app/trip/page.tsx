@@ -1,3 +1,5 @@
+"use client"
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { capitalizeWords, metersToDistanceString, secondsToDurationString } from "@/lib/utils";
 import { Location, Trip } from "@/modules/trip/types/trip";
@@ -16,6 +18,11 @@ export default async function Page() {
     .catch(console.error)
 
   if (!data) return
+
+  console.log(
+    `trip.created_at: ${data[0].created_at}`,
+    `trip.start_date: ${data[0].start_date}`
+  )
 
   return (
     <div className="overflow-scroll-x">
