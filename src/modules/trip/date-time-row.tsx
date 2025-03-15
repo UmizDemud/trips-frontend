@@ -1,3 +1,5 @@
+"use client"
+
 import { TableCell } from '@/components/ui/table'
 
 export const DateTimeRow = ({date}: {date: Date}) => {
