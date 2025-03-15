@@ -1,9 +1,9 @@
-"use client"
+import Link from "next/link";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { capitalizeWords, metersToDistanceString, secondsToDurationString } from "@/lib/utils";
 import { Location, Trip } from "@/modules/trip/types/trip";
-import Link from "next/link";
+import { DateTimeRow } from "@/modules/trip/date-time-row";
 
 export const dynamic = 'force-dynamic';
 
@@ -18,11 +18,6 @@ export default async function Page() {
     .catch(console.error)
 
   if (!data) return
-
-  console.log(
-    `trip.created_at: ${data[0].created_at}`,
-    `trip.start_date: ${data[0].start_date}`
-  )
 
   return (
     <div className="overflow-scroll-x">
@@ -49,15 +44,7 @@ export default async function Page() {
             return (
               <Link className="cursor-pointer" key={trip.id} href={`trip/visualize/${trip.id}`} legacyBehavior={true}>
                 <TableRow className="cursor-pointer">
-                  <TableCell>
-                    <div>
-                      {tripDate.toLocaleTimeString()}
-                    </div>
-
-                    <div>
-                      {tripDate.toLocaleDateString()}
-                    </div>
-                  </TableCell>
+                  <DateTimeRow date={tripDate} />
 
                   <TableCell>
                     <div className="flex flex-col justify-center items-center">
