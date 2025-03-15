@@ -97,7 +97,7 @@ export default function ClientTripVisualizer({trip}: {
   return (
     <div className='relative overflow-hidden rounded-4xl'>
       <MapContainer
-        className='w-96 h-96 md:w-[64rem] md:h-[48rem]'
+        className='w-96 h-96 md:w-[64rem] md:h-[32rem]'
         center={[0, 0]}
         zoom={12}
       >
