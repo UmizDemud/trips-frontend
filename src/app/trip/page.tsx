@@ -44,15 +44,15 @@ export default async function Page() {
             return (
               <Link className="cursor-pointer" key={trip.id} href={`trip/visualize/${trip.id}`} legacyBehavior={true}>
                 <TableRow className="cursor-pointer">
-                <TableCell>
-                  <div>
-                    <LocalTimeDisplay date={tripDate} datetime="time" />
-                  </div>
+                  <TableCell>
+                    <div>
+                      <LocalTimeDisplay date={tripDate} datetime="time" />
+                    </div>
 
-                  <div>
-                    <LocalTimeDisplay date={tripDate} datetime="date" />
-                  </div>
-                </TableCell>
+                    <div>
+                      <LocalTimeDisplay date={tripDate} datetime="date" />
+                    </div>
+                  </TableCell>
 
                   <TableCell>
                     <div className="flex flex-col justify-center items-center">
@@ -62,7 +62,7 @@ export default async function Page() {
                   </TableCell>
 
                   {trip.locations.map((l: Location, i: number) => (
-                    <TableCell className="hidden md:block" key={`${i}_${l.name}`}>
+                    <TableCell className="hidden md:table-cell" key={`${i}_${l.name}`}>
                       <div className="md:w-40">
                         <div >
                           <div className="overflow-ellipsis overflow-hidden">{capitalizeWords(l.type)}</div>
