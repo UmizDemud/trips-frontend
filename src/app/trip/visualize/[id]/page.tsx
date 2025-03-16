@@ -34,7 +34,7 @@ const Page = async ({ params }: {
 
   return (
     <div className="flex flex-col gap-12">
-      <div className="flex flex-row gap-12">
+      <div className="flex md:flex-row flex-col-reverse gap-12 px-2 md:px-[unset]">
         <TripVisualizer trip={trip} />
         <div>
           <h1 className="w-64 px-4 pt-2 text-2xl font-bold border-b-2 border-neutral-600 dark:border-neutral-400">
@@ -78,7 +78,7 @@ const Page = async ({ params }: {
                 {trip.locations.map((l, i) => (
                   <TableRow key={`${i}_${l.name}`}>
                     <TableCell>{capitalizeWords(l.type)}</TableCell>
-                    <TableCell>{l.name}</TableCell>
+                    <TableCell className="md:w-[unset] w-24 block overflow-hidden whitespace-nowrap text-ellipsis">{l.name}</TableCell>
                     <TableCell>{l.distance ? metersToDistanceString(l.distance) : "-"}</TableCell>
                     <TableCell>{l.time ? secondsToDurationString(l.time) : "-"}</TableCell>
                   </TableRow>

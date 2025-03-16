@@ -22,9 +22,9 @@ const Page = async ({ params }: {
   if (!data) return null;
 
   return (
-    <div className="w-full flex flex-col items-end gap-12 pr-12">
+    <div className="w-full flex flex-col items-end gap-8 md:pr-12">
       <LogbookVisualizer logbook={data} />
-      <Link className="bg-neutral-800 mt-4 mr-4 w-20 h-12 rounded flex justify-center items-center text-neutral-100" href={"/logbook/edit/" + id}>Edit</Link>
+      <Link className="bg-neutral-800 md:mr-4 mb-6 mr-2 w-20 h-12 rounded flex justify-center items-center text-neutral-100" href={"/logbook/edit/" + id}>Edit</Link>
     </div>
   )
 }

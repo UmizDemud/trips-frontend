@@ -97,7 +97,7 @@ export default function ClientTripVisualizer({trip}: {
   return (
     <div className='relative overflow-hidden rounded-4xl'>
       <MapContainer
-        className='w-3/5 md:w-[64rem]'
+        className='w-full md:w-[64rem]'
         style={{height: "calc(100vh - 8rem)"}}
         center={[0, 0]}
         zoom={12}

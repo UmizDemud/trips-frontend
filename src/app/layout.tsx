@@ -50,7 +50,7 @@ export default function RootLayout({
         </nav>
         <div className="w-full flex mt-24">
           <div className="hidden md:block max-w-[3rem] w-64 hover:max-w-[16rem] transition-[max-width]"> </div>
-          <div className="min-h[calc(100vh - 5rem)] min-w-[100%] pl-4 pt-2 border-l">
+          <div className="min-h[calc(100vh - 5rem)] min-w-[100%] md:pl-4 pt-2 border-l">
             {children}
           </div>
         </div>
