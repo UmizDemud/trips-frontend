@@ -8,5 +8,7 @@
 
 ## Updates
 
-- Timezones rendering correctly on SSR pages _~_ Mar 15 | 6:30
-- CCU hours can not be negative _~_ Mar 15 | 6:30
+- Timezones rendering correctly on SSR pages -- Mar 15 | 6:30
+- CCU hours can not be negative -- Mar 15 | 6:30
+- Mobile (dev stage) ready responsive behaviour added -- Mar 16 | 8:00
+
