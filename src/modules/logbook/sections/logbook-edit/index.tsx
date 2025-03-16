@@ -85,108 +85,107 @@ export const LogbookEdit = ({logbook}: {logbook: Logbook}) => {
 
 
   return (
-    <form onSubmit={saveLogbook} className="w-fit md:pt-4 md:px-0 md:pb-0 px-2 py-4">
-      <div className="w-fit md:ml-[unset] ml-6 mb-6 select-none flex md:flex-col">
-        <div className="flex md:flex-row flex-col pb-6 pt-12 -ml-2 md:mb-8 text-xs">
-          <div className="md:w-32 w-24"></div>
+    <form onSubmit={saveLogbook} className="md:pt-4 md:px-0 md:pb-0 px-2 py-4">
+      <div className="w-fit mx-auto mb-6 select-none">
+        <div className='flex md:flex-col justify-center'>
+          <div className="flex md:flex-row flex-col pb-6 md:pt-12 -ml-2 md:mb-8 text-xs">
+            <div className="md:w-32 w-24"></div>
 
-          {increments.map((_, i) => (
-            <div key={`hrs_${i}`} className="md:border-b-0 border-b-2 md:w-8 md:h-[unset] h-16 leading-16 md:leading-[unset] md:rotate-[70deg] overflow-visible text-nowrap flex pl-2 md:pl-[unset]">
-              {incrementIndexToHourString(i)}{" - "}{incrementIndexToHourString(i + 1)}
+            {increments.map((_, i) => (
+              <div key={`hrs_${i}`} className="md:border-b-0 border-b-2 md:w-8 md:h-[unset] h-16 leading-16 md:leading-[unset] md:rotate-[70deg] overflow-visible text-nowrap flex pl-2 md:pl-[unset]">
+                {incrementIndexToHourString(i)}{" - "}{incrementIndexToHourString(i + 1)}
+              </div>
+            ))}
+          </div>
+          {dutyStatusOptions.map((_, di) => (
+            <div key={`di${di}`} className="flex md:flex-row items-stretch flex-col md:h-20">
+              <div className="w-32 font-bold leading-20 md:block hidden">{dutyStatusOptions[di]}</div>
+              
+              {increments.map((inc, ii) => (
+                <div
+                  key={`di${di}_ii${ii}`}
+                  onClick={() => handleClick(di, ii)}
+                  onMouseOver={e => handleMouseOver(e, di, ii)}
+                  className={cn(
+                    'md:h-[unset] h-16 md:w-8 w-16 border rounded shadow border-neutral-800 transform cursor-pointer',
+                    !(di === selection[0] && ii === selection[1]) && "hover:bg-neutral-200",
+                    dutyStatusOptions[di] === inc.dutyStatus && "bg-neutral-500 hover:bg-neutral-600",
+                    (dutyStatusOptions[di] === inc.dutyStatus && inc.remark != null) && "bg-amber-500 hover:bg-amber-600",
+                    di === selection[0] && ii === selection[1] && "bg-amber-300 hover:bg-amber-400",
+                  )}
+                ></div>
+              ))}
             </div>
           ))}
         </div>
-        {dutyStatusOptions.map((_, di) => (
-          <div key={`di${di}`} className="flex md:flex-row items-stretch flex-col md:h-20">
-            <div className="w-32 font-bold leading-20 md:block hidden">{dutyStatusOptions[di]}</div>
-            <div className="md:hidden h-12"></div>
-            
-            {increments.map((inc, ii) => (
-              <div
-                key={`di${di}_ii${ii}`}
-                onClick={() => handleClick(di, ii)}
-                onMouseOver={e => handleMouseOver(e, di, ii)}
-                className={cn(
-                  'md:h-[unset] h-16 md:w-8 w-16 border rounded shadow border-neutral-800 transform cursor-pointer',
-                  !(di === selection[0] && ii === selection[1]) && "hover:bg-neutral-200",
-                  dutyStatusOptions[di] === inc.dutyStatus && "bg-neutral-500 hover:bg-neutral-600",
-                  (dutyStatusOptions[di] === inc.dutyStatus && inc.remark != null) && "bg-amber-500 hover:bg-amber-600",
-                  di === selection[0] && ii === selection[1] && "bg-amber-300 hover:bg-amber-400",
-                )}
-              ></div>
-            ))}
-          </div>
-        ))}
-      </div>
 
+        <div className="flex mt-8 justify-between items-start">
+          <h1 className={cn(
+            "w-64 px-4 py-2 mb-8 text-2xl font-bold border-neutral-600 dark:border-neutral-400",
+            selection[1] != null && "border-b-2"
+          )}>
+            {selection[1] != null && "Details"}
+          </h1>
 
-      <div className="flex justify-between items-start">
-        <h1 className={cn(
-          "w-64 px-4 py-2 mb-8 text-2xl font-bold border-neutral-600 dark:border-neutral-400",
-          selection[1] != null && "border-b-2"
-        )}>
-           {selection[1] != null && "Details"}
-        </h1>
+          <Button disabled={loading} className={cn("w-32 h-12 text-lg md:mt-[unset] -mt-8", loading && "bg-neutral-600")} variant="default">Save</Button>
+        </div>
 
-        <Button disabled={loading} className={cn("md:mt-1 -mt-6 w-32 h-12 text-lg", loading && "bg-neutral-600")} variant="default">Save</Button>
-      </div>
+        <div className="md:w-fit flex flex-col">
+          {selection[1] != null && (
+            <>
+              <div className="flex items-center gap-2 pb-2">
+                <span className="w-28">Status:</span>
+                <Select value={increments[selection[1]].dutyStatus} onValueChange={(val: DutyStatus) => {
+                  setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, dutyStatus: val}) : inc))
+                  setSelection(prev => {
+                    if (!prev[1]) return prev;
+                    return ([dutyStatusOptions.findIndex(item => item === val), prev[1]])
+                  })
+                }}>
+                  <SelectTrigger className="md:w-96 w-full">
+                    <SelectValue placeholder="Select status"></SelectValue>
+                  </SelectTrigger>
 
-      <div className="md:w-fit flex flex-col">
-        {selection[1] != null && (
-          <>
-            <div className="flex items-center gap-2 pb-2">
-              <span className="w-28">Status:</span>
-              <Select value={increments[selection[1]].dutyStatus} onValueChange={(val: DutyStatus) => {
-                setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, dutyStatus: val}) : inc))
-                setSelection(prev => {
-                  if (!prev[1]) return prev;
-                  return ([dutyStatusOptions.findIndex(item => item === val), prev[1]])
-                })
-              }}>
-                <SelectTrigger className="md:w-96 w-full">
-                  <SelectValue placeholder="Select status"></SelectValue>
-                </SelectTrigger>
-
-                <SelectContent>
-                  {dutyStatusOptions.map(opt => (
-                    <SelectItem className="" key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {increments[selection[1]].remark != null && (
-              <div className="flex flex-col gap-2">
-                <Label>
-                  <p className="w-28">State:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "state")} className="md:w-96" defaultValue={increments[selection[1]].remark?.state} />
-                </Label>
-                <Label>
-                  <p className="w-28">City:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "city")}  className="md:w-96" defaultValue={increments[selection[1]].remark?.city} />
-                </Label>
-                <Label>
-                  <p className="w-28">Commodity:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "commodity")} className="md:w-96" defaultValue={increments[selection[1]].remark?.commodity} />
-                </Label>
-                <Label>
-                  <p className="w-28">Detail:</p>
-                  <Input onInput={(e) => handleChange(e, selection[1], "detail")} className="md:w-96" defaultValue={increments[selection[1]].remark?.detail} />
-                </Label>
+                  <SelectContent>
+                    {dutyStatusOptions.map(opt => (
+                      <SelectItem className="" key={opt} value={opt}>{opt}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
-            )}
-            {increments[selection[1]].remark == null && (
-              <div className="flex flex-row self-end gap-4 mt-12">
-                <Button className="mt-1 w-32 h-12 text-lg bg-neutral-700" variant="default" type="button" onClick={() => {
-                  setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, remark: {
-                    city: "", state: "", commodity: "", detail: ""
-                  }}) : inc))
-                }}>Add remark</Button>
-              </div>
-            )}
-          </>
-        )}
 
+              {increments[selection[1]].remark != null && (
+                <div className="flex flex-col gap-2">
+                  <Label>
+                    <p className="w-28">State:</p>
+                    <Input onInput={(e) => handleChange(e, selection[1], "state")} className="md:w-96" defaultValue={increments[selection[1]].remark?.state} />
+                  </Label>
+                  <Label>
+                    <p className="w-28">City:</p>
+                    <Input onInput={(e) => handleChange(e, selection[1], "city")}  className="md:w-96" defaultValue={increments[selection[1]].remark?.city} />
+                  </Label>
+                  <Label>
+                    <p className="w-28">Commodity:</p>
+                    <Input onInput={(e) => handleChange(e, selection[1], "commodity")} className="md:w-96" defaultValue={increments[selection[1]].remark?.commodity} />
+                  </Label>
+                  <Label>
+                    <p className="w-28">Detail:</p>
+                    <Input onInput={(e) => handleChange(e, selection[1], "detail")} className="md:w-96" defaultValue={increments[selection[1]].remark?.detail} />
+                  </Label>
+                </div>
+              )}
+              {increments[selection[1]].remark == null && (
+                <div className="flex flex-row self-end gap-4 mt-12">
+                  <Button className="mt-1 w-32 h-12 text-lg bg-neutral-700" variant="default" type="button" onClick={() => {
+                    setIncrements(prev => prev.map((inc, i) => i === selection[1] ? ({...inc, remark: {
+                      city: "", state: "", commodity: "", detail: ""
+                    }}) : inc))
+                  }}>Add remark</Button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </form>
   )
