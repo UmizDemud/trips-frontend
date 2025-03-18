@@ -16,6 +16,9 @@ export default async function Home() {
   console.log(data)  
 
   return (
-    <>Home Page</>
+    <div>
+      <p>This demonstration uses a free backend service</p>
+      <p>First time opened, give the page ~1 minute for the backend server to spin up, and try again.</p>
+    </div>
   );
 }
