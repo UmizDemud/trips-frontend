@@ -32,8 +32,8 @@ export async function GET() {
 
   try {
     const response = await fetch(`${process.env.API_URL!}/api/trip/`, {
-
     });
+
     const data = await response.json();
     return NextResponse.json(data)
   } catch (error) {
