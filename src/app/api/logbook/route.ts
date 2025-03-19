@@ -29,6 +29,11 @@ export async function GET() {
 
   try {
     const response = await fetch(`${process.env.API_URL!}/api/logbook/`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
     return NextResponse.json(data)
   } catch (error) {

@@ -35,11 +35,14 @@ export async function PATCH(
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     })
-    .then(res => res.json())
-    .catch(console.error);
 
+    if (!response.ok) {
+      return new NextResponse("Update process failed", { status: 500 });
+    }
 
-    return NextResponse.json(response);
+    const data = await response.json();
+
+    return NextResponse.json(data);
   } catch (error) {
     return new NextResponse(`Failed to fetch logbook: ${error}`, { status: 500 });
   }
