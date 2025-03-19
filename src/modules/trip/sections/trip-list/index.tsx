@@ -1,14 +1,36 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
+
+import type { Trip } from "@/modules/trip/types/trip";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { capitalizeWords, metersToDistanceString, secondsToDurationString } from "@/lib/utils";
 import { LocalTimeDisplay } from "@/components/local-time-display";
-import { Trip } from "../../types/trip";
 
 
 
-export const TripList = ({data}: {data: Trip[]}) => {
+export const TripList = () => {
+  const [trips, setTrips] = useState<Trip[]>([]);
+
+
+  useEffect(() => {
+    fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/trip")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        return []
+      })
+      .then((res) => {
+        setTrips(res);
+      })
+      .catch(console.error)
+  })
+
   return (
     <Table className="orient-table">
         <TableHeader>
@@ -24,7 +46,7 @@ export const TripList = ({data}: {data: Trip[]}) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map(trip => {
+          {trips.map(trip => {
             const tripDate = new Date(trip.created_at ?? trip.start_date);
 
             return (

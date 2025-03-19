@@ -1,20 +1,9 @@
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary"
 
-import { Trip } from "@/modules/trip/types/trip";
 import { TripList } from "@/modules/trip/sections/trip-list";
 
-export const dynamic = 'force-dynamic';
-
 export default async function Page() {
-
-  const data: Trip[] = await fetch(process.env.NEXT_PUBLIC_API_URL! + "/api/trip")
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .catch(console.error)
 
   return (
     <div className="overflow-scroll-x">
@@ -23,7 +12,7 @@ export default async function Page() {
       </h1>
       <Suspense fallback={<p>Loading...</p>}>
         <ErrorBoundary fallback={<p>Service is busy try again in 50(s)</p>}>
-          <TripList data={data} />
+          <TripList />
         </ErrorBoundary>
       </Suspense>
     </div>
