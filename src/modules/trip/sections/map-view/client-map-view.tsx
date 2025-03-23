@@ -289,8 +289,8 @@ export default function MapView({tripData, stops, setStops, loading, setLoading}
     <div className='relative overflow-hidden rounded-4xl'>
       <MapContainer
         style={{height: "calc(100vh - 9rem)", width: "calc(100vw - 31rem)"}}
-        center={[parseFloat(tripData.pickup?.latitude || "0"), parseFloat(tripData.current?.longitude || "0")]}
-        zoom={4}
+        center={[parseFloat(tripData.pickup?.latitude || "50"), parseFloat(tripData.current?.longitude || "40")]}
+        zoom={3}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
