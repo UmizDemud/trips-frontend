@@ -1,4 +1,5 @@
 import { Trip } from "@/modules/trip/types/trip";
+import { ArrowRight } from "lucide-react";
 
 
 export default async function Home() {
@@ -13,12 +14,28 @@ export default async function Home() {
     })
     .catch(console.error)
 
-  console.log(data)  
 
   return (
     <div>
-      <p>This demonstration uses a free backend service</p>
-      <p>First time opened, give the page ~1 minute for the backend server to spin up, and try again.</p>
+      <div className="flex gap-2">
+        <ArrowRight />
+        Navigate
+      </div>
+      <ul className="pl-12 list-disc">
+        <li>
+          <div>
+            /trip :  To see a snap of the database, a strong sifting (filter, sort) takes time, so was not implemented.
+          </div>
+        </li>
+        <li>
+          <div>
+            /trip/new :  For the simple routing form & api
+          </div>
+        </li>
+        <li>
+          Use the UI to see what is available
+        </li>
+      </ul>
     </div>
   );
 }

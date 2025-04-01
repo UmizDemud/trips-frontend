@@ -92,3 +92,8 @@ export const secondsToDurationString = (secs: number) => {
 export const metersToDistanceString = (ms: number) => {
   return `${(ms / 1000).toFixed(0)}kms`
 }
+
+export const wait = (delay = 3000) => {
+  return new Promise<void>((resolve) => setTimeout(() => {resolve()}, delay))
+}
+
