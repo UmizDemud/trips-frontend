@@ -1,4 +1,3 @@
-import { Trip } from "@/modules/trip/types/trip";
 import { ArrowRight } from "lucide-react";
 
 
@@ -10,6 +9,7 @@ export default async function Home() {
     .catch(console.error)
 
   data = null;
+  console.log(data);
 
   return (
     <div>
